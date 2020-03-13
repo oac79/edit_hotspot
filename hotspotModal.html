@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- OTHERS JS -->
+    <script src="TextEditor/trumbowyg.min.js"></script>
+    <script src="TextEditor/js/vendor/highlight.js"></script>
+    <script src="TextEditor/js/main.js"></script>
+    <script src="TextEditor/plugins/colors/trumbowyg.colors.min.js"></script>
+    <!-- <script src="TextEditor/plugins/upload/trumbowyg.upload.min.js"></script> -->
+    <script src="TextEditor/plugins/giphy/trumbowyg.giphy.min.js"></script>
+    <script src="TextEditor/plugins/table/trumbowyg.table.min.js"></script>
+    <script src="//rawcdn.githack.com/Alex-D/Trumbowyg/v2.19.1/dist/plugins/base64/trumbowyg.base64.min.js" defer></script>
+    <script src="//rawcdn.githack.com/Alex-D/Trumbowyg/v2.19.1/dist/plugins/giphy/trumbowyg.giphy.min.js" defer></script>
+    <script src="//rawcdn.githack.com/Alex-D/Trumbowyg/v2.19.1/dist/plugins/noembed/trumbowyg.noembed.min.js" defer></script>
+    <script src="//rawcdn.githack.com/Alex-D/Trumbowyg/v2.19.1/dist/plugins/pasteimage/trumbowyg.pasteimage.min.js" defer></script>
+    <script src="//rawcdn.githack.com/Alex-D/Trumbowyg/v2.19.1/dist/plugins/preformatted/trumbowyg.preformatted.min.js" defer></script>
+    <!-- <script src="//rawcdn.githack.com/Alex-D/Trumbowyg/v2.19.1/dist/plugins/upload/trumbowyg.upload.min.js" defer></script> -->
+
+    <!-- OTHERS CSS -->
+    <link rel="stylesheet" href="TextEditor/ui/trumbowyg.min.css">
+    <link rel="stylesheet" href="TextEditor/plugins/colors/ui/trumbowyg.colors.min.css">
+    <link rel="stylesheet" href="TextEditor/plugins/giphy/ui/trumbowyg.giphy.min.css">
+    <link rel="stylesheet" href="TextEditor/plugins/table/ui/trumbowyg.table.min.css">
+    <link rel="stylesheet" href="//rawcdn.githack.com/Alex-D/Trumbowyg/v2.19.1/dist/plugins/giphy/ui/trumbowyg.giphy.min.css">
+</head>
+
+<body>
+    <div class="container" align="center">
+        <div class="full_box" align="center">
+            <h2 class="head text-center" id="">Creación de nuevo Hotspot</h2>
+            <h2 class="head text-center" id="head">Seleccione un tipo:</h2>
+            <div class="form_controls" align="center">
+                <div class="row" align="center">
+                    <div class="form-group col-md-3 centeredSelect select-outline" align="center">
+                        <!--Blue select-->
+                        <select id="select" class="mdb-select md-form colorful-select dropdown-info">
+                          <option value="" disabled selected>Selecciona una opción</option>
+                          <option value="link">Link</option>
+                          <option value="text">Text</option>
+                          <option value="pdf">PDF</option>
+                          <option value="image">Image</option>
+                          <option value="scene">Scene</option>
+                        </select>
+                        <label class="mdb-main-label">Selecciona un tipo</label>
+                        <!--/Blue select-->
+                    </div>
+                    <script>
+                        // Material Select
+                        $('.mdb-select').materialSelect();
+                        $('.select-wrapper.md-form.md-outline input.select-dropdown').bind('focus blur', function() {
+                            $(this).closest('.select-outline').find('label').toggleClass('active');
+                            $(this).closest('.select-outline').find('.caret').toggleClass('active');
+                        });
+                    </script>
+                </div>
+                <!-- *************** PDF Section *************** -->
+                <div class="row" style="display: none" id="pdf">
+                    <div class="form-group md-form col-md-4">
+                        <i class="fas fa-eye"></i>
+                        <input type="text" class="form-control iconpdf" id="pwd" placeholder="Icono del botón" name="pswd">
+                    </div>
+                    <div class="form-group md-form col-md-4">
+                        <i class="fas fa-heading"></i>
+                        <input type="text" class="form-control titlepdf" id="pwd" placeholder="Título" name="pswd">
+                    </div>
+                    <div class="form-group md-form col-md-4">
+                        <i class="fas fa-file-pdf"></i>
+                        <input type="text" class="form-control urlpdf" id="pwd" placeholder="Ruta del PDF" name="pswd">
+                    </div>
+                </div>
+                <!-- *************** Link Section *************** -->
+                <div class="row" style="display: none" id="link">
+                    <div class="form-group md-form col-md-6">
+                        <i class="fas fa-eye"></i>
+                        <input type="text" class="form-control iconlink" id="pwd" placeholder="Icono del botón" name="pswd">
+                    </div>
+                    <div class="form-group md-form col-md-6">
+                        <i class="fas fa-paperclip"></i>
+                        <input type="text" class="form-control urllink" id="pwd" placeholder="Ruta del Link (URL)" name="pswd">
+                    </div>
+                </div>
+                <!-- *************** Text Section *************** -->
+                <div class="row" style="display: none" id="text">
+                    <div class="form-group md-form col-md-4">
+                        <i class="fas fa-eye"></i>
+                        <input type="text" class="form-control icontext" id="pwd" placeholder="Icono del botón" name="pswd">
+                    </div>
+                    <div class="form-group md-form col-md-4">
+                        <i class="fas fa-heading"></i>
+                        <input type="text" class="form-control titletext" id="pwd" placeholder="Título" name="pswd">
+                    </div>
+                    <div class="form-group md-form col-md-4">
+                        <i class="fas fa-image"></i>
+                        <input type="text" class="form-control imgtext" id="pwd" placeholder="URL de la Imagen (opcional)" name="pswd">
+                    </div>
+                    <div class="form-group md-form col-md-12">
+                        <section class="section wrapper" id="demonstration">
+                            <textarea id="editor" placeholder="Escribe aquí..."></textarea>
+                        </section>
+                    </div>
+                </div>
+                <!-- *************** Image Section *************** -->
+                <div class="row" style="display: none" id="image">
+                    <div class="form-group md-form col-md-4">
+                        <i class="fas fa-eye"></i>
+                        <input type="text" class="form-control iconimage" id="pwd" placeholder="Icono del botón" name="pswd">
+                    </div>
+                    <div class="form-group md-form col-md-4">
+                        <i class="fas fa-heading"></i>
+                        <input type="text" class="form-control titleimage" id="pwd" placeholder="Título" name="pswd">
+                    </div>
+                    <div class="form-group md-form col-md-4">
+                        <i class="fas fa-paperclip"></i>
+                        <input type="text" class="form-control imgimage" id="pwd" placeholder="Ruta de la imagen (URL)" name="pswd">
+                    </div>
+                </div>
+                <!-- *************** Scene Section *************** -->
+                <div class="row" style="display: none" id="scene">
+                    <div class="form-group md-form col-md-6">
+                        <i class="fas fa-eye"></i>
+                        <input type="text" class="form-control iconscene" id="pwd" placeholder="Icono del botón" name="pswd">
+                    </div>
+                    <div class="form-group md-form col-md-6">
+                        <i class="fas fa-vr-cardboard"></i>
+                        <select id="pwd" class="mdb-select md-form mt-0 colorful-select dropdown-ins sceneSelect">
+                            <option id="scenePlaceholder" value="1" disabled selected>Escena</option>
+                            <!-- <option value="2">Option 2</option>
+                            <option value="3">Option 3</option> -->
+                        </select>
+                        <!-- <label class="mdb-main-label">Escena</label> -->
+                    </div>
+                </div>
+                <!-- *************** END SECTIONS *************** -->
+            </div>
+            <a href="#" onclick="restoreEverything()" class="close-modal" style=""><i class="fas fa-times-circle"></i></a>
+            <button class="btn blue-gradient" onclick="startCreating()">Empezar</button>
+            <!-- <a href="#"  class="" style="">Empezar</a> -->
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#select').change(function() {
+
+                if ($('#select').val() == "") {
+                    swal("Tipo no seleccionado", "Por favor seleccione un tipo", "error");
+                } else {
+
+                }
+
+                if ($('#select').val() == "pdf") {
+                    $('#pdf').show();
+                    $('#head').html("Tipo de Hotspot seleccionado: PDF");
+                    $('#head').css("color", "#180531");
+                } else {
+                    $('#pdf').hide();
+                }
+
+                if ($('#select').val() == "link") {
+                    $('#link').show();
+                    $('#head').html("Tipo de Hotspot seleccionado: Link");
+                    $('#head').css("color", "#180531");
+                } else {
+                    $('#link').hide();
+                }
+
+                if ($('#select').val() == "text") {
+                    $('#text').show();
+                    $('#head').html("Tipo de Hotspot seleccionado: Text");
+                    $('#head').css("color", "#180531");
+                } else {
+                    $('#text').hide();
+                }
+
+                if ($('#select').val() == "image") {
+                    $('#image').show();
+                    $('#head').html("Tipo de Hotspot seleccionado: Imagen");
+                    $('#head').css("color", "#180531");
+                } else {
+                    $('#image').hide();
+                }
+
+                if ($('#select').val() == "scene") {
+                    $('#scene').show();
+                    sceneSelector();
+                    $('#head').html("Tipo de Hotspot seleccionado: Scene");
+                    $('#head').css("color", "#180531");
+                } else {
+                    $('#scene').hide();
+                }
+
+                // if ($('#select').val() == "both") {
+                //   $('#pdf').show();
+                //   $('#head').html("You Selected Transegender");
+                //   $('#head').css("color", "green");
+                //   $('#link').show();
+                // } else {
+                // }
+            });
+
+        });
+
+        'use strict';
+
+        if (window.location.href.indexOf('index.html') > 0) {
+            window.location = window.location.href.replace('index.html', '');
+        }
+
+        hljs.initHighlightingOnLoad();
+
+        (function($) {
+            if ($.trumbowyg) {
+                var configurations = {
+                    core: {},
+                    plugins: {
+                        btnsDef: {
+                            // Customizable dropdowns
+                            align: {
+                                dropdown: ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+                                ico: 'justifyLeft'
+                            }
+                        },
+                        btns: [
+                            ['viewHTML'],
+                            ['undo', 'redo'],
+                            ['formatting'],
+                            ['strong', 'em', 'del', 'underline'],
+                            ['foreColor', 'backColor'],
+                            ['link'],
+                            ['insertImage', 'upload', 'base64', 'noembed', 'giphy'],
+                            ['align'],
+                            ['table'],
+                            ['preformatted'],
+                            ['horizontalRule'],
+                            ['fullscreen']
+                        ],
+                        plugins: {
+                            giphy: {
+                                apiKey: 'dNhCbN6hrhpBMxXhIswM34wIR2UBpCns'
+                            },
+                            // Add imgur parameters to upload plugin
+                            upload: {
+                                serverPath: 'https://api.imgur.com/3/image',
+                                fileFieldName: 'image',
+                                headers: {
+                                    'Authorization': 'Client-ID 9e57cb1c4791cea'
+                                },
+                                urlPropertyName: 'data.link'
+                            }
+                        }
+                    }
+                };
+
+                // Demo switch
+                var $demoTextarea = $('#editor');
+                $demoTextarea.trumbowyg(configurations.plugins);
+                $('.demo-switcher .button').on('click', function() {
+                    var $current = $('.demo-switcher .current');
+                    $(this).parent().removeClass('current-' + $current.data('config'));
+                    $current.removeClass('current');
+                    $(this).addClass('current');
+                    $(this).parent().addClass('current-' + $(this).data('config'));
+                    $demoTextarea.trumbowyg('destroy');
+                    $demoTextarea.trumbowyg(configurations[$(this).data('config')]);
+                });
+            }
+        })(jQuery);
+    </script>
+
+</body>
+
+</html>

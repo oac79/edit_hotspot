@@ -1,0 +1,132 @@
+#modalNewBtn {
+    display: block;
+    max-width: 100%;
+    /* background: #0000009c; */
+    /* margin: 0px auto; */
+    margin: 0;
+}
+
+#htsptType {
+    background: #ffffff;
+    color: #180531;
+    font-size: 30px;
+}
+
+#createThem {
+    margin-top: 10px;
+    background: #ffffff;
+    color: #180531;
+    font-size: 30px;
+}
+
+#createThem:hover {
+    background: #000000;
+    color: #998bac;
+    border: 1px solid black
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.full_box {
+    background: #eee;
+    padding: 10px;
+    /* margin-top: 50px; */
+    border-radius: 5px;
+    min-height: 650px;
+}
+
+.head {
+    margin-bottom: 30px;
+}
+
+#pwd {
+    width: 100% !important;
+    text-align: center;
+}
+
+#pwd::placeholder {
+    text-align: center;
+}
+
+.centeredSelect {
+    margin: 0px auto;
+}
+
+#select {
+    background: brown;
+    color: wheat;
+}
+
+#select:hover {
+    background: rgb(124, 24, 24);
+}
+
+#select:focus {
+    text-align: center;
+    border: none;
+    border-bottom-color: rgb(165, 136, 42);
+    box-shadow: 0 0 0 1px rgb(51, 2, 2);
+}
+
+.close-modal {
+    /* background-image: url('https://www.vippng.com/png/full/19-191807_were-sad-to-see-you-go-cross-icon.png') !important; */
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.form-group i {
+    display: block !important;
+    color: #376cbd;
+}
+
+.modalSpotTitle {
+    color: var(--ck-color-dropdown-panel-background)!important;
+}
+
+.modalSpotBody {
+    text-align: center;
+}
+
+.modalSpot {
+    overflow: auto;
+    max-height: 850px;
+}
+
+.table {
+    color: white;
+}
+
+#modalNewBtn .container {
+    overflow: auto;
+    max-height: 850px;
+    padding: 0;
+}
+
+.full_box {
+    background: #ffffff;
+    padding: 60px;
+    /* margin-top: 50px; */
+    border-radius: 5px;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.head {
+    margin-bottom: 30px;
+}
+
+.selectedOption {
+    background-color: #180531 !important;
+}
+
+.createEvent {
+    cursor: crosshair;
+}
+
+.dragEvent {
+    cursor: grab;
+}

@@ -1,0 +1,327 @@
+.navbar-global {
+    background-color: indigo;
+}
+
+.navbar-global .navbar-brand {
+    color: white;
+}
+
+.navbar-global .navbar-user>li>a {
+    color: white;
+}
+
+.navbar-primary {
+    background-color: rgb(240, 240, 240) !important;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 350px;
+    z-index: 8;
+    font-size: 25px;
+    overflow: hidden;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+}
+
+.navbar-primary.collapsed {
+    width: 100px;
+}
+
+.navbar-primary.collapsed .glyphicon {
+    font-size: 22px;
+}
+
+.navbar-primary.collapsed .nav-label {
+    display: none;
+}
+
+.btn-expand-collapse {
+    background-color: #979797;
+    position: absolute;
+    display: block;
+    border-top: solid 1px rgba(0, 0, 0, .25);
+    left: 0px;
+    bottom: 0;
+    width: 100%;
+    padding: 8px 0;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.separationMenu {
+    border-bottom: solid 1px rgba(0, 0, 0, .25);
+    color: grey;
+}
+
+.btn-expand-collapse:hover,
+.btn-expand-collapse:focus {
+    background-color: #525252;
+    color: #fff;
+}
+
+.btn-expand-collapse:active {
+    background-color: #111;
+    color: #F8F9FA
+}
+
+.navbar-primary-menu,
+.navbar-primary-menu li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar-primary-menu li a {
+    display: block;
+    padding: 10px 18px;
+    text-align: left;
+    color: #051f46;
+    margin: .375rem;
+    color: #ffffff;
+    background: #24495c;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    white-space: normal;
+    cursor: pointer;
+    border: 0;
+    border-radius: .125rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 2px 4px 0 rgba(0, 0, 0, .12);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    padding: .84rem 2.14rem;
+    font-size: .81rem;
+}
+
+.navbar-primary-menu li a:hover {
+    background-color: #0183bf;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-primary-menu li a .glyphicon {
+    margin-right: 6px;
+}
+
+.navbar-primary-menu li a:hover .glyphicon {
+    color: #ffffff;
+}
+
+.main-content {
+    margin-top: 60px;
+    margin-left: 200px;
+    padding: 20px;
+}
+
+.collapsed+.main-content {
+    margin-left: 60px;
+}
+
+.zindex {
+    z-index: 9;
+}
+
+.nav.collapsed {
+    display: none!important;
+}
+
+.style-font-navbar {
+    width: 100%;
+    display: block;
+    color: white;
+    font-weight: 900;
+    font-family: monospace;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.margin-nav {
+    margin: 0px auto;
+    width: 100%;
+}
+
+.hideMenu {
+    display: none !important;
+}
+
+.notification,
+.notificationExams {
+    right: 0px;
+    top: -9px;
+    background-color: #dc3545;
+    color: #f8f9fa;
+    padding: 3px 5.5px;
+    border-radius: 50px;
+    line-height: 1;
+    font-size: 10px;
+    width: 16px;
+    position: relative;
+    display: inline-block;
+    float: right;
+    text-align: center;
+}
+
+.fa-exclamation {
+    font-size: 0.6rem;
+    z-index: 9;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {}
+
+@media (min-width: 576px) and (max-width: 767px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 1200px) {}
+
+@media only screen and (min-width:300px) {
+    .scrolleable {
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+    .style-font-navbar {
+        width: 100%;
+        display: block;
+        color: white;
+        font-weight: 900;
+        font-family: monospace;
+        font-size: 13px!important;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width:700px) {
+    .style-font-navbar {
+        width: 100%;
+        display: block;
+        color: white;
+        font-weight: 900;
+        font-family: monospace;
+        font-size: 22px!important;
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width:1000px) {
+    .style-font-navbar {
+        width: 100%;
+        display: block;
+        color: white;
+        font-weight: 900;
+        font-family: monospace;
+        font-size: 22px!important;
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+.selectedProfile {
+    background-color: #0183bf !important;
+    color: white;
+}
+
+.unselectedProfile {
+    background-color: #24495c !important;
+    color: white;
+}
+
+.isDisabled {
+    color: currentColor;
+    cursor: not-allowed !important;
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+.marginMenu {
+    margin-bottom: 50px;
+}
+
+.notificationGreen,
+.notificationGreenExams {
+    right: 0px;
+    top: -9px;
+    background-color: #22B573;
+    color: #F8F9FA;
+    padding: 3px 0.6px;
+    border-radius: 50px;
+    line-height: 1;
+    font-size: 10px;
+    width: 16px;
+    position: relative;
+    display: inline-block;
+    float: right;
+    text-align: center;
+}
+
+.modal a.close-modal {
+    position: fixed;
+    /* margin-right: 10%; */
+    z-index: 15;
+    /* margin-top: 1%; */
+    top: 4%;
+    right: 29%;
+}
+
+.marginMenu {
+    margin-bottom: 50px!important;
+}
+
+.modal-header {
+    color: #24495c;
+}
+
+#mdb-preloader.loaded {
+    opacity: 0;
+    transition: .3s ease-in 1s;
+}
+
+#volver {
+    background-color: #dc3545;
+}
+
+#volver:hover {
+    background-color: #ac2331;
+}
+
+#exitTour {
+    background-color: #1b1b1b;
+}
+
+#exitTour:hover {
+    background-color: #000000;
+}
+
+#saveHotspots {
+    background-color: #13c18e;
+}
+
+#saveHotspots:hover {
+    background-color: #0c8f68;
+}
+
+.dropdown-item {
+    background-color: #f0f0f0 !important;
+    color: unset !important;
+}
+
+#resizeHotspot:hover {
+    background-color: #0183bf !important;
+    color: white !important;
+}
+
+#changeInfoHotspot:hover {
+    background-color: #0183bf !important;
+    color: white !important;
+}
+
+.editSpotDropDown {
+    width: 97%;
+    background: #24495ca1;
+}
