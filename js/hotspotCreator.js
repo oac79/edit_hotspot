@@ -18,7 +18,9 @@ jQuery(document).ready(function() {
     onClickEditSize();
     spotsGetter();
     setTimeout(function() {
-        console.log('krpano: ', krpano.get("hotspot[spot0]").name);
+        console.log('%c krpano: ', 'color: red; font-weight: bold;', krpano.get("hotspot[spot0]").name);
+
+        console.log('%c krpano: ', 'color: orange; font-weight: bold;', krpano.set("hotspot[spot0].scale", "0.5"));
     }, 1000)
 
 });
@@ -878,7 +880,7 @@ function loadModalResizeSpot() {
 }
 
 function showModalResize(index) {
-    console.log('showModalResize___');
+    console.log('%c showModalResize___', 'color: blue; font-weight: bold;');
     $(".modalResizeClass").remove();
     // Creamos el modal para cambiar el tamaño del Hotspot
     $('<div class="modal fade modalResizeClass" id="modalResize" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">' +
@@ -900,7 +902,7 @@ function showModalResize(index) {
         $('<div class="d-flex justify-content-center my-4">' +
             '<span class="font-weight-bold blue-text mr-2 mt-1">0.1</span>' +
             '<form class="range-field w-50">' +
-            ' <input class="border-0" type="range" min="0.1" max="0.5" step="0.01" />' +
+            ' <input class="border-0 sliderIn" type="range" min="0.1" max="0.5" step="0.01" />' +
             '</form>' +
             '<span class="font-weight-bold blue-text ml-2 mt-1">0.5</span>' +
             '</div>'
@@ -910,7 +912,7 @@ function showModalResize(index) {
         $('<div class="d-flex justify-content-center my-4">' +
             '<span class="font-weight-bold blue-text mr-2 mt-1">0</span>' +
             '<form class="range-field w-50">' +
-            ' <input class="border-0" type="range" min="1" max="10"/>' +
+            ' <input class="border-0 sliderIn" type="range" min="1" max="10" step="0.1"/>' +
             '</form>' +
             '<span class="font-weight-bold blue-text ml-2 mt-1">10</span>' +
             '</div>'
@@ -922,5 +924,14 @@ function showModalResize(index) {
 
 function resizeSpot(index) {
     showModalResize(index);
-    console.log('modalSpots___', modalSpots[index]);
+    console.log('%c modalSpots___', 'color: green; font-weight: bold;', modalSpots[index].name);
+
+    $('.sliderIn').change(function() {
+        var slider = $('.sliderIn').val();
+        console.log('%c slider', 'color: purple; font-weight: bold;', slider);
+        console.log('%c krpano: ', 'color: orange; font-weight: bold;');
+        krpano.set("hotspot[" + modalSpots[index].name + "].scale", slider);
+    })
+
+
 }
