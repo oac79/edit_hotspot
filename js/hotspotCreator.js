@@ -17,6 +17,10 @@ jQuery(document).ready(function() {
     onClickEditInfo();
     onClickEditSize();
     spotsGetter();
+    setTimeout(function() {
+        console.log('krpano: ', krpano.get("hotspot[spot0]").name);
+    }, 1000)
+
 });
 
 function onClicktoStart() {
@@ -72,7 +76,7 @@ function onClickEditSize() {
     $("#resizeHotspot").on("click", function() {
         $("#changeInfoHotspot").off("click");
         isSizeEditable = true;
-        resizeHotspot();
+        loadModalResizeSpot();
         setFrontClassesEditInfo($("#editHotspots"));
     });
 }
@@ -390,6 +394,7 @@ function createSpot(type, obj) {
         var str = "";
         // Creamos el Hotspot y le ponemos el nombre, icono y coordenadas.
         var standardObj = standardSpot(str, obj);
+        console.log('standardObj: ', standardObj);
         str += standardObj.str;
 
         var spotInfo = objSpotGetter(type, obj);
@@ -406,7 +411,8 @@ function createSpot(type, obj) {
             "type": type,
             "link": spotInfo.link,
             "coordinate_x": standardObj.ath,
-            "coordinate_y": standardObj.atv
+            "coordinate_y": standardObj.atv,
+            "scale": getSceneType() == "flat" ? "0.2" : getSceneType() == "cube" ? "1" : ""
         }
 
         str = assignOnClick(str, objSpot);
@@ -517,6 +523,7 @@ function activateSavingSpots() {
         if (createMode) {
             createListHotspots(Object.assign({}, listHotspots))
                 .done(function(response) {
+                    console.log('response___: ', response);
                     $("#saveHotspots").addClass("isDisabled");
                     Swal.fire(
                         "¡Hotspot creado!",
@@ -674,6 +681,7 @@ function getSceneTypeFromDB(spotScene) {
 }
 
 function modalSpotsCreator(currentSpotName, spoType) {
+    console.log('currentSpotName___', currentSpotName);
     $(".modalSpotTitle").empty();
     $(".modalSpotBody").empty();
     for (var i = 0; i < modalSpots.length; i++) {
@@ -860,16 +868,19 @@ function sceneSelector() {
     }
 }
 
-function resizeHotspot() {
+
+function loadModalResizeSpot() {
+
     for (var i = 0; i < modalSpots.length; i++) {
-        krpano.call("set(hotspot[" + modalSpots[i].name + "].onclick, js(showModalResize());)");
+        krpano.call("set(hotspot[" + i + "].onclick, js(resizeSpot('" + i + "'));)");
     }
+
 }
 
-function showModalResize() {
+function showModalResize(index) {
+    console.log('showModalResize___');
     $(".modalResizeClass").remove();
     // Creamos el modal para cambiar el tamaño del Hotspot
-
     $('<div class="modal fade modalResizeClass" id="modalResize" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">' +
         '<div class="modal-dialog modal-lg" role="document">' +
         '<div class="modal-content">' +
@@ -877,7 +888,6 @@ function showModalResize() {
         '<a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>' +
         '<h4 align="center"><font color="black">Resize Hotspot</font></h4>' +
         '<div id="modalNewBtn" class="row">' +
-
         '</div>' +
         '</div>' +
         '</div>' +
@@ -888,18 +898,19 @@ function showModalResize() {
     var type = getSceneType();
     if (type == 'flat') {
         $('<div class="d-flex justify-content-center my-4">' +
-            '<span class="font-weight-bold blue-text mr-2 mt-1">0.0</span>' +
+            '<span class="font-weight-bold blue-text mr-2 mt-1">0.1</span>' +
             '<form class="range-field w-50">' +
-            ' <input class="border-0" type="range" min="0.0" max="0.5" step="0.1" />' +
+            ' <input class="border-0" type="range" min="0.1" max="0.5" step="0.01" />' +
             '</form>' +
             '<span class="font-weight-bold blue-text ml-2 mt-1">0.5</span>' +
             '</div>'
         ).appendTo("#modalNewBtn");
+
     } else if (type == 'cube') {
         $('<div class="d-flex justify-content-center my-4">' +
             '<span class="font-weight-bold blue-text mr-2 mt-1">0</span>' +
             '<form class="range-field w-50">' +
-            ' <input class="border-0" type="range" min="0" max="10"/>' +
+            ' <input class="border-0" type="range" min="1" max="10"/>' +
             '</form>' +
             '<span class="font-weight-bold blue-text ml-2 mt-1">10</span>' +
             '</div>'
@@ -907,4 +918,9 @@ function showModalResize() {
     } else {
         console.log('type not found');
     }
+}
+
+function resizeSpot(index) {
+    showModalResize(index);
+    console.log('modalSpots___', modalSpots[index]);
 }

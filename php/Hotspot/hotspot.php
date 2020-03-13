@@ -54,10 +54,11 @@ public function createListHotspots($listHostpots){
         $link = $listHostpots[$i]['link'];
         $coordinate_x = $listHostpots[$i]['coordinate_x'];
         $coordinate_y = $listHostpots[$i]['coordinate_y'];
+        $scale = $listHostpots[$i]['scale'];
 
-        $sql = 'INSERT INTO  `hotspots` (`project`,`scene`,`name`, `title`, `message`, `icon`, `image`, `video`,`type`,`link`,`coordinate_x`, `coordinate_y`)
+        $sql = 'INSERT INTO  `hotspots` (`project`,`scene`,`name`, `title`, `message`, `icon`, `image`, `video`,`type`,`link`,`coordinate_x`, `coordinate_y`, `scale`)
         VALUES ("'.$project.'","'.$scene.'","'.$name.'","'.$title.'","'.$message.'","'.$icon.'",
-        "'.$image.'","'.$video.'","'.$type.'","'.$link.'",'.$coordinate_x.','.$coordinate_y.')';
+        "'.$image.'","'.$video.'","'.$type.'","'.$link.'",'.$coordinate_x.','.$coordinate_y.','.$scale.')';
 
         if($conn->query($sql) === TRUE) {
         // echo '<br>New Hotspot created successfully<br>';
